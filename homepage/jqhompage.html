@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="jqhomestyle.css">	
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+	<script>
+		//for-dropdown
+		$(document).ready(function(){
+		
+			$(".dropdown > a").click(function(){
+				$(this).parent().siblings().find('ul').slideUp(500);
+				$(this).next('ul').stop(true,false,true).slideToggle(500);
+				return false;
+			});
+
+			$(".box").hover(function(){
+				$(this).find(".content").animate({bottom: "0"});},
+				function(){
+					$(this).find(".content").animate({bottom: "-5.5rem"});
+			});
+			
+			//for text animation
+			let typed = new Typed(".quoteslog", {
+				strings : ["plant big sale special offer","decorate your home now","plant make people happy"],
+				typeSpeed : 60,
+				backSpeed : 50,
+				loop : true
+			});	
+
+		});
+
+			//for-image-slider
+			function slider(){
+				$current=$('.slider img.active');
+				if($current.length==0){
+					$('.slider img:first-child').addClass('active');
+				}
+				else{
+					$next=$current.removeClass('active').next();
+					if($next.length==0){
+					$('.slider img:first-child').addClass('active');
+					}
+					else{
+						$next.addClass('active');
+					}
+				}
+			}
+			setInterval(slider,2500);		
+</script>
+</head>
+<body>
+	<header>
+
+		<div class="wrapper">
+			<div class="menu">
+				<ul class="nav-area">
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">About</a></li>
+					<li class="dropdown"><a href="#">Categories &nbsp&nbsp<i class="arrow down"></i></a>
+						<ul>
+							<li class="dropdown indrop"><a href="#">Plant by types &nbsp&nbsp<i class="arrow right"></i></a>			
+								<ul>
+									<li><a href="#">Succulents</a></li>
+									<li><a href="#">Cactus</a></li>
+									<li><a href="#">Bonsai</a></li>
+									<li><a href="#">Shrubs</a></li>
+									<li><a href="#">Orchids</a></li>
+									<li><a href="#">Vines & Creepers</a></li>
+								</ul>
+							</li>
+							<li class="dropdown indrop"><a href="#">Plants by Use &nbsp&nbsp<i class="arrow right"></i></a>
+								<ul>
+									<li><a href="#">Air Purifier</a></li>
+									<li><a href="#">Low Maintenance</a></li>
+									<li><a href="#">Indoor</a></li>
+									<li><a href="#">Office Desk</a></li>
+									<li><a href="#">Balcony</a></li>
+									<li><a href="#">Hanging</a></li>
+									<li><a href="#">Vastu plants</a></li>
+								</ul> 
+							</li>
+						</ul>
+					</li>
+					<li><a href="#">Delivery</a></li>
+					<li><a href="#">Consultant</a></li>
+					<li><a href="#">Login/register</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="sec-imgslider">
+		<div class="slider">
+				<img src="slider1.jpg" class="active sli-img">
+				<img src="slider2.jpg" class="sli-img">
+				<img src="slider3.jpg" class="sli-img">								
+		</div>
+		<div class="animtxt">
+			<span>upto <span class="percen"></span>65% off</span>
+			<h3><span class="quoteslog"></span></h3>
+
+			<a href="#" class="shpnow">shop now</a>
+		</div>
+
+		<!--<div class="content">
+            <span>upto 75% off</span>
+            <h3>plant big sale special offer</h3>
+            <a href="#" class="btn">shop now</a>
+        </div>
+            <div class="content">
+            <span>upto 45% off</span>
+            <h3>plant make people happy</h3>
+            <a href="#" class="btn">shop now</a>
+        </div>
+        <div class="content">
+            <span>upto 65% off</span>
+            <h3>decorate your home now</h3>
+            <a href="#" class="btn">shop now</a>
+        </div>-->
+	</section>
+
+<br>
+	<!-- category section starts  -->
+
+	<section class="category" id="category">
+	<h1 class="heading"> shop by category </h1>
+	<div class="box-container">
+		<div class="box">
+			<img src="cat1.jpg" alt="">
+			<div class="content">
+				<h3>bonsai</h3>
+				<a href="#" class="btn">shop now</a>
+			</div>
+		</div>
+		<div class="box">
+			<img src="cat2.jpg" alt="">
+			<div class="content">
+				<h3>plants for house</h3>
+				<a href="#" class="btn">shop now</a>
+			</div>
+		</div>
+		<div class="box">
+			<img src="cat3.jpg" alt="">
+			<div class="content">
+				<h3>plants for office</h3>
+				<a href="#" class="btn">shop now</a>
+			</div>
+		</div>
+		<div class="box">
+			<img src="cat4.jpg" alt="">
+			<div class="content">
+				<h3>gift plants</h3>
+				<a href="#" class="btn">shop now</a>
+			</div>
+		</div>
+	</div>
+	</section>
+	
+
+
+	<div class="cookwrapper">
+		<img class="logoimg" src="translogocook222222.png" alt="cooklogo">
+		<div class="cookcontent">
+		  <header>Cookies Consent</header>
+		  <p>This website use cookies to ensure you get the best experience on our website.</p>
+		  <div class="cookbuttons">
+			<button class="item cookbutton">I understand</button>
+			<a href="#" class="item">Learn more</a>
+		  </div>
+		</div>
+	  </div>
+	  <script>
+		//for cookie box hide
+		const cookieBox = document.querySelector(".cookwrapper"),
+   		acceptBtn = cookieBox.querySelector(".cookbutton");
+	    acceptBtn.onclick = ()=>{
+        cookieBox.classList.add("hide");}
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="new2css.css">	
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="imageslider.js"></script>
+</head>
+<body>
+		<div class="wrapper">
+			<div class="menu">
+				<ul class="nav-area">
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">About</a></li>
+					<li class="dropdown"><a href="#">Categories</a>
+						<ul>
+							<li class="dropdown indrop"><a href="#">Plant by types</a>			
+								<ul>
+									<li><a href="#">Succulents</a></li>
+									<li><a href="#">Cactus</a></li>
+									<li><a href="#">Bonsai</a></li>
+									<li><a href="#">Shrubs</a></li>
+									<li><a href="#">Orchids</a></li>
+									<li><a href="#">Vines & Creepers</a></li>
+								</ul>
+							</li>
+							<li class="dropdown indrop"><a href="#">Plants by Use</a>
+								<ul>
+									<li><a href="#">Air Purifier</a></li>
+									<li><a href="#">Low Maintenance</a></li>
+									<li><a href="#">Indoor</a></li>
+									<li><a href="#">Office Desk</a></li>
+									<li><a href="#">Balcony</a></li>
+									<li><a href="#">Hanging</a></li>
+									<li><a href="#">Vastu plants</a></li>
+								</ul> 
+							</li>
+						</ul>
+					</li>
+					<li><a href="#">Delivery</a></li>
+					<li><a href="#">Consultant</a></li>
+					<li><a href="#">Login/register</a></li>
+				</ul>
+			</div>
+		</div>
+		<section class="sec-imgslider">
+		<div class="slider">
+				<img src="slider1.jpg" class="active sli-img">
+				<img src="slider2.jpg" class="sli-img">
+				<img src="slider3.jpg" class="sli-img">
+		</div>
+		</section>
+
+		<script>
+			
+				$(".dropdown > a").click(function(){
+					$(this).parent().siblings().find('ul').slideUp(500);
+					$(this).next('ul').stop(true,false,true).slideToggle(500);
+					return false;
+				});
+
+
+				function slider(){
+				$current=$('.slider img.active');
+				if($current.length==0){
+					$('.slider img:first-child').addClass('active');
+				}
+				else{
+					$next=$current.removeClass('active').next();
+					if($next.length==0){
+					$('.slider img:first-child').addClass('active');
+					}
+					else{
+						$next.addClass('active');
+					}
+				}
+			}
+			setInterval(slider,2500);
+
+
+	</script>
+
+</body>
+</html>

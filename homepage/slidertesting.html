@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	.slider{
+		width: 350px;
+		height: 200px;
+		position:relative;
+	}
+	img{
+		max-width:100%;
+		max-height: 100%;
+		position:absolute;
+		opacity: 0;
+	}
+	.active{
+		opacity: 1;
+	}
+	</style>
+	<script src="imageslider.js"></script>
+</head>
+<body>
+	<div class="slider">
+			<img src="slider1.jpg" class="active">
+			<img src="slider2.jpg">
+			<img src="slider3.jpg">
+			<img src="wallback.jpg">
+	</div>
+
+	<script>
+		function slider(){
+				$current=$('.slider img.active');
+				if($current.length==0){
+					$('.slider img:first-child').addClass('active');
+				}
+				else{
+					$next=$current.removeClass('active').next();
+					if($next.length==0){
+						$('.slider img:first-child').addClass('active');
+					}else{
+						$next.addClass('active');
+					}
+				}
+			}
+			setInterval(slider,5000);
+	</script>
+</body>
+</html>
